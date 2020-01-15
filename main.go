@@ -8,7 +8,7 @@ type home struct {
 	id int64
 	name string
 	price int64
-	area string
+	district string
 	addressHouse string
 	distanceOfTheCenter int
 	postTime int64
@@ -36,7 +36,7 @@ func sortByPriceForAscending(homes []home) []home {
 
 
 
-func sortByDistanceOfCenterClose_LongAway(homes []home) []home {
+func sortByDistanceOfCenterAscending(homes []home) []home {
 	result := make([]home, len(homes))
 	copy(result,homes)
 	sort.Slice(result, func( i, j int) bool{
@@ -45,7 +45,7 @@ func sortByDistanceOfCenterClose_LongAway(homes []home) []home {
 	return result
 }
 
-func sortByDistanceOfCenterLongAway_Close(homes []home) []home {
+func sortByDistanceOfCenterDescending(homes []home) []home {
 	result := make([]home, len(homes))
 	copy(result,homes)
 	sort.Slice(result, func( i, j int) bool{
@@ -76,12 +76,32 @@ func searchByPrice(homes []home, price int64) []home {
 	return result
 }
 
+func searchByPriceLimit(homes []home, minLimit, maxLimit int64) []home {
+	result := make([]home,0)
+	for _, home :=range homes{
+		if home.price >=minLimit && home.price <=maxLimit{
+			result = append(result,home)
+		}
+	}
+	return result
+}
 
-func searchByArea(homes []home, area string) []home {
+func searchByDistrict(homes []home, district string) []home {
 	result := make([]home, 0)
 	for _, home := range homes{
-		if home.area == area{
+		if home.district == district{
 			result = append(result,home)
+		}
+	}
+	return result
+}
+func searchByDistricts(homes []home, district []string) []home {
+	result := make([]home, 0)
+	for _, home := range homes{
+		for _, dist := range district {
+			if home.district == dist {
+				result = append(result, home)
+			}
 		}
 	}
 	return result
