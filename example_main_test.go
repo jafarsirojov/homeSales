@@ -93,7 +93,7 @@ func ExampleSearchByPriceLimit_NoResult()  {
 	// Output: []
 }
 
-func ExampleSearchByPriceLimit_HaveResult()  {
+func ExampleSearchByPriceLimit_OneResult()  {
 	result := searchByPriceLimit(homesSale, 350_000,600_000)
 	fmt.Println(result)
 	// Output: [{1 1 комнатная квартира, 99 кв.м. 9/25 эт. 600000 Душанбе р.Сино, Борбад 33 10 1578232244 Вася}]
@@ -111,7 +111,7 @@ func ExampleSearchByPrice_NoResults()  {
 	// Output: []
 }
 
-func ExampleSearchByPrice_HaveResult()  {
+func ExampleSearchByPrice_OneResult()  {
 	result := searchByPrice(homesSale, 600_000)
 	fmt.Println(result)
 	// Output: [{1 1 комнатная квартира, 99 кв.м. 9/25 эт. 600000 Душанбе р.Сино, Борбад 33 10 1578232244 Вася}]
