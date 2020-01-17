@@ -123,7 +123,7 @@ func ExampleSearchByDistrict_NoResults()  {
 	// Output: []
 }
 
-func ExampleSearchByDistrict_HaveResults()  {
+func ExampleSearchByDistrict_OneResults()  {
 	result := searchByDistrict(homesSale,"Куляб")
 	fmt.Println(result)
 	// Output: [{4 4 комнатная квартира, 120 кв.м. 3/4 эт. 280000 Куляб р., Дусти 1 180 1578235694 Игор}]
